@@ -14,4 +14,5 @@ module.exports = {
     '!src/serviceWorker.js',
     '!src/polyfill.js',
   ],
+  
 }
