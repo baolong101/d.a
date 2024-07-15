@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import classNames from 'classnames'
 
 import {
@@ -10,6 +10,8 @@ import {
   CCardFooter,
   CCardHeader,
   CCol,
+  CForm,
+  CFormInput,
   CProgress,
   CRow,
   CTable,
@@ -175,10 +177,32 @@ const Dashboard = () => {
       activity: 'Last week',
     },
   ]
+  // ----------------------------------------------------------
+  const formRef = useRef(null);
 
+  const handleToken = (e) => {
+    e.preventDefault();
+    const form = formRef.current;
+    if (form) {
+      const formData = new FormData(form);
+      const token = formData.get('token');
+      localStorage.setItem('token', token);
+      console.log(token);
+    } else {
+      console.error("Form reference is null");
+    }
+  };
   return (
     <>
       <WidgetsDropdown className="mb-4" />
+      <CForm ref={formRef} onClick={handleToken}>
+        <CFormInput type='text' name='token' placeholder='nhap token' />
+        <CButton type='submit'>Submit</CButton>
+      </CForm>
+
+{/* ------------------------------------------------------------------------------ */}
+
+
       <CCard className="mb-4">
         <CCardBody>
           <CRow>

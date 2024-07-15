@@ -4,8 +4,19 @@ import React from 'react'
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/user/listUser'))
 const Add = React.lazy(() => import('./views/theme/user/add.js'))
-const Edit = React.lazy(() => import('./views/theme/user/edit.js'))
+const EditUser = React.lazy(() => import('./views/theme/user/edit.js'))
+// Category
 const Typography = React.lazy(() => import('./views/theme/Categorys/Category'))
+const addCategory = React.lazy(() => import('./views/theme/Categorys/add'))
+const EditCategory = React.lazy(() => import('./views/theme/Categorys/edit'))
+// Product
+const Products = React.lazy(() => import('./views/theme/Products/product'))
+const EditPr = React.lazy(() => import('./views/theme/Products/Edit'))
+const AddPr = React.lazy(() => import('./views/theme/Products/Add'))
+// supplire
+const supplire = React.lazy(() => import('./views/theme/Suppliers/listSupplirs'))
+const AddSP = React.lazy(() => import('./views/theme/Suppliers/Add'))
+const EditSP = React.lazy(() => import('./views/theme/Suppliers/Edit'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -57,10 +68,26 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
+  // user
   { path: '/theme/colors', name: 'user', element: Colors },
   { path: '/theme/colors/add', name: 'add', element: Add },
-  { path: '/theme/colors/User/update/:id', name: 'edit', element: Edit },
+  { path: '/theme/colors/User/update/:id', name: 'edit', element: EditUser },
+  // category
   { path: '/theme/typography', name: 'Categorys', element: Typography },
+  { path: '/theme/typography/add', name: 'Add', element: addCategory },
+  { path: '/theme/typography/Category/update/:id', name: 'Edit', element: EditCategory },
+  // Products
+  { path: '/theme/product', name: 'Products', element: Products },
+  { path: '/theme/product/add', name: 'add', element: AddPr },
+  { path: '/theme/product/update/:id', name: 'Edit', element: EditPr },
+  // { path: '/theme/product', name: 'Products', element: Products },
+  // supplire
+  { path: '/theme/supplire', name: 'Suppliers', element: supplire },
+  { path: '/theme/supplire/add', name: 'Add', element: AddSP },
+  { path: '/theme/supplire/update/:id', name: 'Edit', element: AddSP },
+
+
+  // 
   { path: '/base', name: 'Base', element: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', element: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },

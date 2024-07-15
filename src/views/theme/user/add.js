@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
 import {
-  CForm,
-  CCol,
-  CFormInput,
   CButton,
-  CFormSelect,
-  CFormCheck,
+  CCol,
+  CForm,
+  CFormInput,
+  CFormSelect
 } from '@coreui/react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { instance } from 'src/apis';
 
 const Add = () => {

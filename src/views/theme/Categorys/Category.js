@@ -9,7 +9,7 @@ import {
   CTableRow,
 } from '@coreui/react';
 import { instance } from 'src/apis';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Typography = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Typography = () => {
       const res = await instance.get('/Category');
       console.log(res.data.statusCode);
       if (res.data.statusCode === 200) {
-        setCategory(res.data.data);
+        setCategory(res.data.data.$values||[]);
         setError(null); 
       } else {
         setError(`Error: ${res.data.message}`);
@@ -74,10 +74,18 @@ const Typography = () => {
       {!error && (
         <CTable>
           <CTableHead>
+          <CTableRow>
+              <CTableHeaderCell colSpan={8} scope="col">
+                <Link to={'/theme/typography/add'}>
+                  <CButton color="danger">Add</CButton>
+                </Link>
+              </CTableHeaderCell>
+            </CTableRow>
             <CTableRow>
               <CTableHeaderCell scope="col">#</CTableHeaderCell>
               <CTableHeaderCell scope="col">Category Name</CTableHeaderCell>
               <CTableHeaderCell scope="col">Image</CTableHeaderCell>
+              <CTableHeaderCell scope="col">Action</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
@@ -95,7 +103,10 @@ const Typography = () => {
                   )}
                 </CTableDataCell>
                 <CTableDataCell>
-                  <CButton onClick={() => handleDelete(item.categoriesID)}>delete</CButton>
+                  <CButton color="danger" onClick={() => handleDelete(item.categoriesID)}>delete</CButton>
+                  <Link to={`Category/update/${item.categoriesID}`}>
+                    <CButton color="danger">Edit</CButton>
+                  </Link>
                 </CTableDataCell>
               </CTableRow>
             ))}
