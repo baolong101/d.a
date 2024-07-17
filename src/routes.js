@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/user/listUser'))
 const Add = React.lazy(() => import('./views/theme/user/add.js'))
@@ -17,6 +16,10 @@ const AddPr = React.lazy(() => import('./views/theme/Products/Add'))
 const supplire = React.lazy(() => import('./views/theme/Suppliers/listSupplirs'))
 const AddSP = React.lazy(() => import('./views/theme/Suppliers/Add'))
 const EditSP = React.lazy(() => import('./views/theme/Suppliers/Edit'))
+// service time
+const service = React.lazy(() => import('./views/theme/ServiceTimes/List'))
+const addSv = React.lazy(() => import('./views/theme/ServiceTimes/Add'))
+const editSv = React.lazy(() => import('./views/theme/ServiceTimes/Edit'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -85,9 +88,12 @@ const routes = [
   { path: '/theme/supplire', name: 'Suppliers', element: supplire },
   { path: '/theme/supplire/add', name: 'Add', element: AddSP },
   { path: '/theme/supplire/update/:id', name: 'Edit', element: AddSP },
+  // ServiceTime
+  { path: '/theme/service', name: 'ServiceTimes', element: service },
+  { path: '/theme/service/add', name: 'Add', element: addSv },
+  { path: '/theme/service', name: 'ServiceTimes', element: service },
 
-
-  // 
+  //
   { path: '/base', name: 'Base', element: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', element: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },

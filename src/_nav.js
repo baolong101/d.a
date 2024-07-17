@@ -52,7 +52,11 @@ const _nav = [
     component: CNavItem,
     name: 'Suppliers',
     to: '/theme/supplire',
-    // icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'ServiceTimes',
+    to: '/theme/service',
   },
   // {
   //   component: CNavTitle,
